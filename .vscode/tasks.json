@@ -1,0 +1,114 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Laravel Server",
+            "type": "shell",
+            "command": "C:\\xampp82\\php\\php.exe",
+            "args": [
+                "artisan",
+                "serve",
+                "--port=8000"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/laravel"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Server running on",
+                    "endsPattern": "Press Ctrl\\+C to stop the server"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Start Vite Server",
+            "type": "shell",
+            "command": "npm.cmd",
+            "args": [
+                "run",
+                "dev"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/laravel"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "VITE",
+                    "endsPattern": "press h"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Run Migrations & Seed",
+            "type": "shell",
+            "command": "C:\\xampp82\\php\\php.exe",
+            "args": [
+                "artisan",
+                "migrate:fresh",
+                "--seed"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/laravel"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Build Assets (Production)",
+            "type": "shell",
+            "command": "npm.cmd",
+            "args": [
+                "run",
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/laravel"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Start SalonEase App",
+            "dependsOn": [
+                "Start Laravel Server",
+                "Start Vite Server"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "${workspaceFolder}/laravel": "${workspaceFolder}/laravel"
+            }
+        },
+        {
+            "name": "Launch Built-in Server",
+            "type": "php",
+            "request": "launch",
+            "program": "${workspaceFolder}/laravel/artisan",
+            "args": [
+                "serve",
+                "--port=8000"
+            ],
+            "runtimeExecutable": "C:\\xampp82\\php\\php.exe",
+            "port": 8000
+        }
+    ]
+}
